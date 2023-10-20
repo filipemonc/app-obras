@@ -1,0 +1,2708 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@font-face {
+    font-family: "Bank Gothic";
+    src: url(../bankgothic.otf);
+}
+
+:root {
+    --cor-principal: #023c64;
+    --cor-principal-v1: #1b5074;
+    --cor-secundaria: white;
+    --cor-secundaria-trans: rgba(255, 255, 255, 0.5);
+    --cor-terciaria: black;
+    --cor-terciaria-trans: rgba(0, 0, 0, 0.5);
+    --cor-terciaria-v1: #555555;
+    --cor-terciaria-v2: #333333;
+    --cor-terciaria-v3: #999999;
+    --cor-terciaria-v4: #c1c1c1;
+    --cor-terciaria-v5: #d9d9d9;
+    --cor-terciaria-v6: #f1f1f1;
+    --cor-terciaria-v7: #e1e1e1;
+    --cor-aviso-principal: #ffc36b;
+    --cor-aviso-secundaria: #ffb36b;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+.preloader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 200px;
+}
+.preloader::after {
+    content: "";
+    width: 60px;
+    height: 60px;
+    border: rgba(0, 0, 0, 0.18) solid;
+    border-left-color: var(--cor-principal);
+    border-radius: 50%;
+    animation: loading 1.2s linear infinite;
+}
+@keyframes loading {
+    to {
+        transform: rotate(360deg);
+    }
+}
+body {
+    min-height: 100vh;
+    background-color: var(--cor-secundaria);
+}
+strong {
+    font-weight: 600;
+}
+header .logo,
+.container .login .logo::before {
+    background: url(../img/logo.svg) no-repeat;
+    background-size: cover;
+}
+nav .menu li {
+    list-style: none;
+}
+nav .menu li a {
+    position: relative;
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+}
+nav .menu li a .icon ion-icon {
+    font-size: 1.5em;
+}
+.alerta .aviso {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    color: var(--cor-terciaria-v2);
+    background-color: var(--cor-aviso-principal);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+    z-index: 99;
+}
+.alerta .aviso .icone,
+.alerta .aviso .fechar {
+    display: flex;
+    align-items: center;
+    height: 24px;
+    font-size: 24px;
+}
+.alerta .aviso .icone {
+    margin-right: 10px;
+}
+.alerta .aviso .fechar {
+    color: var(--cor-terciaria-v1);
+    cursor: pointer;
+}
+.alerta .aviso .fechar:hover {
+    color: var(--cor-terciaria-v2);
+}
+.alerta .aviso .mensagem {
+    width: 100%;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--cor-principal);
+}
+.container .login {
+    padding: 25px;
+    width: 300px;
+    border-radius: 12px;
+    box-shadow: 0px 2px 12px rgb(0 0 0 / 25%);
+    background-color: var(--cor-secundaria);
+}
+.container .login .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container .login .logo::before {
+    content: "";
+    display: flex;
+    width: 5.4rem;
+    height: 5.4rem;
+}
+.container .login .logo::after {
+    content: "Nome da Empresa";
+    margin-top: 15px;
+    font-size: 1.2rem;
+    font-family: "Bank Gothic";
+}
+.container .login .formulario {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.container .login .formulario .bloco .icone {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    font-size: 20px;
+    color: var(--cor-terciaria-v5);
+}
+.container .login .formulario .bloco input,
+.container .login .formulario .bloco label {
+    padding-left: 30px;
+}
+.container .formulario .bloco input:valid ~ .icone,
+.container .formulario .bloco input:invalid:not(:placeholder-shown) ~ .icone,
+.container .formulario .bloco input:focus ~ .icone,
+.container .formulario .bloco input:disabled ~ .icone {
+    color: var(--cor-terciaria-v1);
+}
+.content .options {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 30px;
+    max-width: 600px;
+}
+.container .options .button,
+.content .options .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.container .options .button.confirm,
+.content .options .button.confirm {
+    color: var(--cor-secundaria);
+    background-color: var(--cor-principal);
+}
+.container .options .button .loader,
+.content .options .button .loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.container .options .button .loader::after,
+.content .options .button .loader::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    border: var(--cor-secundaria) solid;
+    border-left-color: transparent;
+    border-radius: 50%;
+    animation: loading 1.2s linear infinite;
+}
+.content .options .button.cancel {
+    color: var(--cor-terciaria-v2);
+    background-color: var(--cor-terciaria-v4);
+}
+.content .options .button_square {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: var(--cor-terciaria-v2) !important;
+    background-color: var(--cor-terciaria-v4);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+.content .options .button_square .icone_square {
+    font-size: 32px;
+}
+.content .dash .graficos .conteudo {
+    display: flex;
+    align-items: center;
+}
+.content .dash .graficos .conteudo .grafico {
+    position: relative;
+    width: 100px;
+}
+.content .dash .graficos .conteudo .grafico .valor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 1.4rem;
+    font-weight: 600;
+    transform: translate(-50%, -50%);
+}
+.content .dash h2 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+.content .dash .em_andamento_dash .linhas .linha {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 5px 0;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+.content .dash .em_andamento_dash .linhas .linha:not(:last-child) {
+    border-bottom: 1px solid var(--cor-terciaria-v6);
+}
+.content .dash .em_andamento_dash .linhas .linha .nome,
+.content .dash .em_andamento_dash .linhas .linha .termino {
+    margin-right: 20px;
+}
+.content .dash .em_andamento_dash .linhas .linha .responsavel {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--cor-secundaria);
+    background-color: var(--cor-principal);
+}
+.content .dash .em_andamento_dash .linhas .linha .pendencia,
+.content .dash .em_andamento_dash .linhas .linha .icone {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.content .dash .em_andamento_dash .linhas .linha .pendencia {
+    display: flex;
+    align-items: center;
+    right: 24px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--cor-aviso-secundaria);
+}
+.content .dash .em_andamento_dash .linhas .linha .pendencia .texto {
+    margin-top: 3px;
+    margin-right: 3px;
+}
+.content .dash .em_andamento_dash .linhas .linha .pendencia .icone_pendencia,
+.content .dash .em_andamento_dash .linhas .linha .icone {
+    display: flex;
+    align-items: center;
+    right: 0;
+    height: 24px;
+    font-size: 24px;
+}
+.content .dash .em_andamento_dash .linhas .linha .pendencia .icone_pendencia {
+    color: var(--cor-aviso-principal);
+}
+.content .dash .em_andamento_dash .linhas .linha .icone {
+    color: var(--cor-principal);
+}
+.content .abas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.content .abas ul {
+    display: flex;
+    list-style: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+.content .abas ul li {
+    position: relative;
+    margin-right: 20px;
+    white-space: nowrap;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+.content .abas ul li.active {
+    color: var(--cor-principal);
+}
+.content .abas ul li.active::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--cor-principal);
+    transform: translateX(-50%);
+    transition: 0.2s ease-in-out;
+}
+.content .abas .botao_voltar {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--cor-principal);
+}
+.content .abas .botao_voltar .legenda {
+    margin-left: 5px;
+    font-size: 0.9rem;
+}
+.content .modal .overlay_foto {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--cor-terciaria-trans);
+    z-index: 4;
+}
+.content .modal .overlay_foto img {
+    position: absolute;
+    max-width: 80%;
+    max-height: 80%;
+    top: 50%;
+    left: 50%;
+    box-shadow: 0px 2px 12px rgb(0 0 0 / 25%);
+    transform: translate(-50%, -50%);
+}
+.content .modal .overlay_foto .fechar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 32px;
+    background-color: var(--cor-secundaria);
+    box-shadow: 0px 2px 12px rgb(0 0 0 / 25%);
+    cursor: pointer;
+}
+.content .modal .overlay .obra .conteudo_aba {
+    margin: -12px;
+    padding: 12px;
+    overflow-y: scroll;
+}
+.content .modal .overlay .obra .cartao_atualizacao .preloader {
+    height: 100%;
+}
+.content .modal .overlay .obra .titulo,
+.content .modal .overlay .obra .cartao_atualizacao .data {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+.content .modal .overlay .obra .titulo {
+    font-weight: 600;
+}
+.content .modal .overlay .obra .cartao_atualizacao p {
+    margin-bottom: 10px;
+}
+.content .modal .overlay .obra .cartao_atualizacao .fotos {
+    display: flex;
+    list-style: none;
+}
+.content .modal .overlay .obra .cartao_atualizacao .fotos li {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    background-color: var(--cor-terciaria-v6);
+}
+.content .modal .overlay .obra .cartao_atualizacao .fotos li .maximizar {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    padding: 1px;
+    color: var(--cor-terciaria-v1);
+    font-size: 15px;
+    border-radius: 4px;
+    background-color: var(--cor-secundaria-trans);
+    pointer-events: none;
+}
+.content .modal .overlay .obra .cartao_atualizacao .fotos li img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.content .abas .adicionar,
+.content .modal .overlay .obra .conteudo_aba .adicionar {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--cor-secundaria);
+    background-color: var(--cor-principal);
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+.content .modal .overlay .obra .conteudo_aba .adicionar {
+    margin-bottom: 15px;
+    margin-right: 10px;
+}
+.content .abas .adicionar .icone_botao,
+.content .modal .overlay .obra .conteudo_aba .adicionar .icone_botao {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+    height: 16px;
+    font-size: 16px;
+}
+.content .modal .overlay .obra .conteudo_aba .adicionar_diario,
+.content .modal .overlay .obra .conteudo_aba .atualizacao {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+.content .modal .overlay .obra .conteudo_aba .atualizacao {
+    position: relative;
+    overflow: hidden;
+}
+.content .modal .overlay .obra .conteudo_aba .atualizacao::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 80px;
+}
+.content .modal .overlay .obra .conteudo_aba .adicionar_diario {
+    font-weight: 600;
+}
+.content
+    .modal
+    .overlay
+    .obra
+    .conteudo_aba
+    .atualizacao
+    .texto
+    p:not(:last-child) {
+    margin-right: 10px;
+}
+.content .modal .overlay .obra .conteudo_aba .adicionar_diario .icone_adicionar,
+.content .modal .overlay .obra .conteudo_aba .atualizacao .imagem_atualizacao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: var(--cor-terciaria-v3);
+    background-color: var(--cor-terciaria-v7);
+    overflow: hidden;
+}
+.content .modal .overlay .obra .conteudo_aba .atualizacao {
+    position: relative;
+}
+.content
+    .modal
+    .overlay
+    .obra
+    .conteudo_aba
+    .adicionar_diario
+    .icone_adicionar {
+    font-size: 24px;
+}
+.content .modal .overlay .obra .conteudo_aba .atualizacao .imagem_atualizacao {
+    font-size: 16px;
+}
+.content .modal .overlay .obra .conteudo_aba .atualizacao .remover_atualizacao {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 20px;
+    height: 24px;
+    font-size: 24px;
+    color: var(--cor-terciaria-v4);
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+    z-index: 1;
+}
+.content .modal .overlay .obra .conteudo_aba .notas_fiscais,
+.content .modal .overlay .obra .conteudo_aba .efetivo,
+.content .modal .overlay .obra .conteudo_aba .arquivos,
+.content .modal .overlay .obra .conteudo_aba .maquinas,
+.content .modal .overlay .obra .conteudo_aba .materiais {
+    list-style: none;
+}
+.content .modal .overlay .obra .conteudo_aba .notas_fiscais,
+.content .modal .overlay .obra .conteudo_aba .efetivo,
+.content .modal .overlay .obra .conteudo_aba .maquinas,
+.content .modal .overlay .obra .conteudo_aba .materiais {
+    margin-bottom: 20px;
+}
+.content .modal .overlay .obra .conteudo_aba .notas_fiscais li,
+.content .modal .overlay .obra .conteudo_aba .efetivo li,
+.content .modal .overlay .obra .conteudo_aba .arquivos li,
+.content .modal .overlay .obra .conteudo_aba .maquinas li,
+.content .modal .overlay .obra .conteudo_aba .materiais li {
+    display: flex;
+    margin-bottom: 10px;
+}
+.content
+    .modal
+    .overlay
+    .obra
+    .conteudo_aba
+    .notas_fiscais
+    li
+    p:not(:last-of-type),
+.content .modal .overlay .obra .conteudo_aba .efetivo li p:not(:last-of-type),
+.content .modal .overlay .obra .conteudo_aba .maquinas li p:not(:last-of-type),
+.content
+    .modal
+    .overlay
+    .obra
+    .conteudo_aba
+    .materiais
+    li
+    p:not(:last-of-type) {
+    margin-right: 10px;
+}
+.content
+    .modal
+    .overlay
+    .obra
+    .conteudo_aba
+    .notas_fiscais
+    .icone_notas_fiscais,
+.content .modal .overlay .obra .conteudo_aba .arquivos .icone_arquivos {
+    display: flex;
+    align-items: center;
+    margin-top: -1px;
+    margin-right: 10px;
+    height: 24px;
+    font-size: 24px;
+    color: var(--cor-principal);
+}
+.content .modal .overlay .obra .conteudo_aba .notas_fiscais li a,
+.content .modal .overlay .obra .conteudo_aba .arquivos li a {
+    color: var(--cor-terciaria);
+}
+.content .modal .overlay .obra .conteudo_aba .notas_fiscais li a {
+    display: flex;
+    text-decoration: none;
+}
+.content .modal .overlay .obra .conteudo_aba .arquivos li a {
+    text-decoration: underline;
+}
+.content .obras .box,
+.content .colaboradores .box {
+    display: flex;
+    position: relative;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    box-shadow: 0px 2px 12px rgb(0 0 0 / 25%);
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+.content .obras .box .imagem,
+.content .colaboradores .box .imagem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    font-size: 32px;
+    color: var(--cor-terciaria-v3);
+    background-color: var(--cor-terciaria-v7);
+    overflow: hidden;
+}
+.content .obras .box .texto p,
+.content .colaboradores .box .texto p {
+    margin-bottom: 5px;
+}
+.content .obras .box .texto .nome,
+.content .colaboradores .box .texto .nome {
+    font-weight: bold;
+}
+.content .obras .box .icone,
+.content .colaboradores .box .icone {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+    height: 24px;
+    font-size: 24px;
+    color: var(--cor-principal);
+}
+.content .modal .overlay .obra .controles,
+.content .modal .overlay .colaborador .controles {
+    display: flex;
+    position: absolute;
+    color: var(--cor-principal);
+}
+.content .modal .overlay .obra .controles .editar,
+.content .modal .overlay .obra .controles .fechar,
+.content .modal .overlay .colaborador .controles .editar,
+.content .modal .overlay .colaborador .controles .fechar {
+    display: flex;
+    align-items: center;
+    height: 24px;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+.content .modal .overlay .obra .controles .editar,
+.content .modal .overlay .colaborador .controles .editar {
+    font-size: 24px;
+}
+.content .modal .overlay .obra .controles .fechar,
+.content .modal .overlay .colaborador .controles .fechar {
+    margin-top: 1px;
+    font-size: 32px;
+}
+.content .modal .overlay .obra .infos .nome {
+    display: flex;
+    font-weight: 600;
+}
+.content .modal .overlay .obra .infos .nome,
+.content .modal .overlay .obra .infos .responsavel,
+.content .modal .overlay .obra .infos .responsavel_tecnico {
+    align-items: center;
+}
+.content .modal .overlay .obra .infos .icone {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+    height: 20px;
+    font-size: 20px;
+    color: var(--cor-principal);
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+.content .modal .overlay .obra .abas {
+    height: 30px;
+    overflow-x: scroll;
+}
+.content .modal .overlay .obra .controles_interno {
+    display: inline-flex;
+    margin-left: 10px;
+    height: 20px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.content .modal .overlay .obra .controles_interno span:not(:last-child) {
+    margin-right: 1px;
+}
+.content .modal .overlay .obra .controles_interno .secundario,
+.content .modal .overlay .obra .controles_interno .principal,
+.content .modal .overlay .obra .controles_interno .pendencia,
+.content .modal .overlay .obra .controles_interno .link {
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+.content .modal .overlay .obra .controles_interno .secundario,
+.content .modal .overlay .obra .controles_interno .principal {
+    font-size: 20px;
+}
+.content .modal .overlay .obra .controles_interno .pendencia {
+    font-size: 15px;
+}
+.content .modal .overlay .obra .controles_interno .link {
+    padding-left: 4px;
+    font-size: 18px;
+}
+.content .modal .overlay .obra .controles_interno .secundario {
+    color: var(--cor-terciaria-v1);
+    background-color: var(--cor-terciaria-v4);
+}
+.content .modal .overlay .obra .controles_interno .principal,
+.content .modal .overlay .obra .controles_interno .link {
+    color: var(--cor-secundaria);
+    background-color: var(--cor-principal);
+}
+.content .modal .overlay .obra .controles_interno .pendencia {
+    color: var(--cor-terciaria-v2);
+    background-color: var(--cor-aviso-secundaria);
+}
+.content .modal .overlay .obra .controles_interno .principal .legenda,
+.content .modal .overlay .obra .controles_interno .pendencia .legenda,
+.content .modal .overlay .obra .controles_interno .link .legenda {
+    font-size: 0.7rem;
+    margin-right: 4px;
+}
+.content .modal .overlay .obra .controles_interno .link .legenda {
+    margin-left: 2px;
+}
+.content .modal .overlay .obra .conteudo_aba .metas {
+    list-style: none;
+}
+.content .modal .overlay .obra .conteudo_aba .metas .novo,
+.content .modal .overlay .obra .conteudo_aba .metas .concluido {
+    display: flex;
+    flex-wrap: wrap;
+}
+.content .modal .overlay .obra .conteudo_aba .metas .novo {
+    position: relative;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+.content .modal .overlay .obra .conteudo_aba .metas .novo::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: -20px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1.5px solid var(--cor-principal);
+}
+.content .modal .overlay .obra .conteudo_aba .metas .concluido {
+    position: relative;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    color: var(--cor-terciaria-v4);
+    text-decoration: line-through;
+}
+.content .modal .overlay .obra .conteudo_aba .metas .concluido::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: -20px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1.5px solid var(--cor-terciaria-v4);
+    background-color: var(--cor-terciaria-v4);
+}
+.content .modal .overlay .obra .conteudo_aba .metas li strong {
+    margin-right: 10px;
+}
+.content .modal .overlay .obra .conteudo_aba .metas li .pendencias {
+    margin-top: 5px;
+    margin-left: -16px;
+    width: 100%;
+    list-style: none;
+}
+.content .modal .overlay .obra .conteudo_aba .metas li .pendencias li {
+    display: flex;
+}
+.content .modal .overlay .obra .conteudo_aba .metas li .pendencias li .seta,
+.content .modal .overlay .obra .conteudo_aba .metas li .pendencias li .icone {
+    display: flex;
+    align-items: center;
+    color: var(--cor-principal);
+}
+.content .modal .overlay .obra .conteudo_aba .metas li .pendencias li .seta {
+    margin-right: 10px;
+    height: 20px;
+    font-size: 20px;
+}
+.content .modal .overlay .obra .conteudo_aba .metas li .pendencias li .icone {
+    margin-top: 1px;
+    margin-right: 5px;
+    height: 18px;
+    font-size: 18px;
+}
+.content .modal .overlay .obra .abas::-webkit-scrollbar {
+    display: none;
+}
+.content .modal .overlay .obra .infos .nome .cartao_obra,
+.content .modal .overlay .obra .infos .responsavel .cartao_pessoa,
+.content .modal .overlay .obra .infos .responsavel_tecnico .cartao_pessoa {
+    display: inline;
+    position: relative;
+}
+.content .modal .overlay .obra .infos .nome .cartao_obra .box_balao,
+.content .modal .overlay .obra .infos .responsavel .cartao_pessoa .box_balao,
+.content
+    .modal
+    .overlay
+    .obra
+    .infos
+    .responsavel_tecnico
+    .cartao_pessoa
+    .box_balao,
+.content .modal .overlay .obra .cartao_atualizacao {
+    padding: 25px;
+    border-radius: 12px;
+}
+.content .modal .overlay .obra .infos .nome .cartao_obra .box_balao,
+.content .modal .overlay .obra .infos .responsavel .cartao_pessoa .box_balao,
+.content
+    .modal
+    .overlay
+    .obra
+    .infos
+    .responsavel_tecnico
+    .cartao_pessoa
+    .box_balao {
+    z-index: 3;
+}
+.content .modal .overlay .obra .cartao_atualizacao {
+    z-index: 2;
+}
+.content .modal .overlay .obra .infos .nome .cartao_obra .box_balao,
+.content .modal .overlay .obra .infos .responsavel .cartao_pessoa .box_balao,
+.content
+    .modal
+    .overlay
+    .obra
+    .infos
+    .responsavel_tecnico
+    .cartao_pessoa
+    .box_balao {
+    background-color: var(--cor-secundaria);
+}
+.content .modal .overlay .obra .infos .nome .cartao_obra .box_balao .cartao,
+.content
+    .modal
+    .overlay
+    .obra
+    .infos
+    .responsavel
+    .cartao_pessoa
+    .box_balao
+    .cartao,
+.content
+    .modal
+    .overlay
+    .obra
+    .infos
+    .responsavel_tecnico
+    .cartao_pessoa
+    .box_balao
+    .cartao,
+.content .modal .overlay .colaborador .cartao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.content .modal .overlay .obra .infos .nome .cartao_obra .box_balao .imagem,
+.content
+    .modal
+    .overlay
+    .obra
+    .infos
+    .responsavel
+    .cartao_pessoa
+    .box_balao
+    .imagem,
+.content
+    .modal
+    .overlay
+    .obra
+    .infos
+    .responsavel_tecnico
+    .cartao_pessoa
+    .box_balao
+    .imagem,
+.content .modal .overlay .colaborador .imagem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    font-size: 64px;
+    color: var(--cor-terciaria-v3);
+    background-color: var(--cor-terciaria-v7);
+    overflow: hidden;
+}
+.content
+    .modal
+    .overlay
+    .obra
+    .infos
+    .nome
+    .cartao_obra
+    .box_balao
+    .cartao
+    .nome,
+.content
+    .modal
+    .overlay
+    .obra
+    .infos
+    .responsavel
+    .cartao_pessoa
+    .box_balao
+    .cartao
+    .nome,
+.content
+    .modal
+    .overlay
+    .obra
+    .infos
+    .responsavel_tecnico
+    .cartao_pessoa
+    .box_balao
+    .cartao
+    .nome,
+.content .modal .overlay .colaborador .nome {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+.content
+    .modal
+    .overlay
+    .obra
+    .infos
+    .responsavel
+    .cartao_pessoa
+    .box_balao
+    .cartao
+    .matricula,
+.content
+    .modal
+    .overlay
+    .obra
+    .infos
+    .responsavel_tecnico
+    .cartao_pessoa
+    .box_balao
+    .cartao
+    .matricula,
+.content .modal .overlay .obra .infos .nome .cartao_obra .box_balao .texto,
+.content
+    .modal
+    .overlay
+    .obra
+    .infos
+    .responsavel
+    .cartao_pessoa
+    .box_balao
+    .texto,
+.content
+    .modal
+    .overlay
+    .obra
+    .infos
+    .responsavel_tecnico
+    .cartao_pessoa
+    .box_balao
+    .texto {
+    font-size: 0.8rem;
+}
+.content .modal .overlay .obra .infos .nome .cartao_obra .box_balao .texto,
+.content
+    .modal
+    .overlay
+    .obra
+    .infos
+    .responsavel
+    .cartao_pessoa
+    .box_balao
+    .texto,
+.content
+    .modal
+    .overlay
+    .obra
+    .infos
+    .responsavel_tecnico
+    .cartao_pessoa
+    .box_balao
+    .texto {
+    font-weight: 400;
+}
+.content .modal .overlay .obra .infos .nome .cartao_obra .box_balao .cartao p,
+.content
+    .modal
+    .overlay
+    .obra
+    .infos
+    .responsavel
+    .cartao_pessoa
+    .box_balao
+    .cartao
+    p,
+.content
+    .modal
+    .overlay
+    .obra
+    .infos
+    .responsavel_tecnico
+    .cartao_pessoa
+    .box_balao
+    .cartao
+    p,
+.content .modal .overlay .colaborador .cartao p {
+    margin-bottom: 0;
+}
+.content .modal .overlay .obra .infos .nome .cartao_obra .box_balao .texto p,
+.content
+    .modal
+    .overlay
+    .obra
+    .infos
+    .responsavel
+    .cartao_pessoa
+    .box_balao
+    .texto
+    p,
+.content
+    .modal
+    .overlay
+    .obra
+    .infos
+    .responsavel_tecnico
+    .cartao_pessoa
+    .box_balao
+    .texto
+    p,
+.content .modal .overlay .colaborador .texto p {
+    margin-bottom: 10px;
+}
+.content .modal .overlay .obra .infos .nome .cartao_obra .box_balao .fechar,
+.content
+    .modal
+    .overlay
+    .obra
+    .infos
+    .responsavel
+    .cartao_pessoa
+    .box_balao
+    .fechar,
+.content
+    .modal
+    .overlay
+    .obra
+    .infos
+    .responsavel_tecnico
+    .cartao_pessoa
+    .box_balao
+    .fechar,
+.content .modal .overlay .obra .cartao_atualizacao .fechar,
+.content .modal .overlay .obra .formulario_interno .fechar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 26px;
+    height: 24px;
+    font-size: 24px;
+    color: var(--cor-secundaria);
+    border-radius: 6px;
+    background-color: var(--cor-principal);
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+.content .modal .overlay .colaborador .listas {
+    width: 100%;
+    overflow-y: scroll;
+}
+.content .modal .overlay .colaborador .lista_responsavel {
+    margin-top: 25px;
+    height: min-content;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.content .modal .overlay .colaborador .lista_responsavel .title {
+    padding: 5px 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--cor-secundaria);
+    background-color: var(--cor-principal);
+}
+.content .modal .overlay .colaborador .lista_responsavel .conteudo_responsavel {
+    position: relative;
+    padding: 15px;
+    background-color: var(--cor-terciaria-v6);
+}
+.content
+    .modal
+    .overlay
+    .colaborador
+    .lista_responsavel
+    .conteudo_responsavel
+    .lista_obras {
+    list-style: none;
+}
+.content .perfil .conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.content .perfil .conteudo .imagem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    font-size: 64px;
+    color: var(--cor-terciaria-v3);
+    background-color: var(--cor-terciaria-v7);
+    overflow: hidden;
+}
+.content .obras .box .imagem img,
+.content .colaboradores .box .imagem img,
+.content .modal .overlay .colaborador .imagem img,
+.content .modal .overlay .obra .infos .nome .cartao_obra .box_balao .imagem img,
+.content
+    .modal
+    .overlay
+    .obra
+    .infos
+    .responsavel
+    .cartao_pessoa
+    .box_balao
+    .imagem
+    img,
+.content
+    .modal
+    .overlay
+    .obra
+    .infos
+    .responsavel_tecnico
+    .cartao_pessoa
+    .box_balao
+    .imagem
+    img,
+.content .modal .overlay .colaborador .imagem img,
+.content .perfil .conteudo .imagem img,
+.content
+    .modal
+    .overlay
+    .obra
+    .conteudo_aba
+    .atualizacao
+    .imagem_atualizacao
+    img,
+.content
+    .modal
+    .overlay
+    .formulario_novo
+    .conteudo
+    .formulario
+    .bloco_imagem
+    .imagem
+    img,
+.content
+    .modal
+    .overlay
+    .formulario_interno
+    .conteudo
+    .formulario
+    .bloco_imagem
+    .imagem
+    img {
+    width: auto;
+    height: 100%;
+}
+.content .perfil .conteudo h2 {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+}
+.content .perfil .conteudo p {
+    font-size: 0.9rem;
+}
+.content .perfil .formulario {
+    margin: 0 auto;
+    max-width: 400px;
+}
+.content .perfil .botao_gestao_colaboradores {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    right: 20px;
+    padding: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--cor-terciaria);
+    background-color: var(--cor-secundaria);
+    box-shadow: 0px 2px 12px rgb(0 0 0 / 25%);
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+    z-index: 1;
+}
+.content .perfil .botao_gestao_colaboradores .icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    font-size: 32px;
+    color: var(--cor-terciaria-v3);
+    background-color: var(--cor-terciaria-v7);
+}
+.container .formulario .bloco,
+.content .formulario .bloco {
+    position: relative;
+    height: 70px;
+}
+.container .formulario .bloco input,
+.content .formulario .bloco input,
+.content .formulario .bloco select {
+    color: var(--cor-terciaria-v1);
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px solid var(--cor-terciaria-v5);
+    outline: none;
+    transition: 0.2s ease-in-out;
+}
+.container .formulario .bloco label,
+.content .formulario .bloco label {
+    top: 0;
+    left: 0;
+    right: 0;
+    color: var(--cor-terciaria-v3);
+    display: flex;
+    align-items: center;
+    position: absolute;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: 0.2s ease-in-out;
+}
+.container .formulario .bloco input,
+.container .formulario .bloco label,
+.content .formulario .bloco input,
+.content .formulario .bloco select,
+.content .formulario .bloco label {
+    width: 100%;
+    height: 3rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    -webkit-appearance: none;
+}
+.container .formulario .bloco input:valid,
+.container .formulario .bloco input:focus,
+.container .formulario .bloco input:disabled,
+.content .formulario .bloco input:valid,
+.content .formulario .bloco input:focus,
+.content .formulario .bloco input:disabled,
+.content .formulario .bloco select:valid,
+.content .formulario .bloco select:focus,
+.content .formulario .bloco select:disabled {
+    border-bottom: 2px solid var(--cor-terciaria-v1);
+}
+.container .formulario .bloco input:invalid:not(:placeholder-shown),
+.content .formulario .bloco input:invalid:not(:placeholder-shown) {
+    border-bottom: 2px solid #f44336;
+}
+.container .formulario .bloco input:valid + label,
+.container .formulario .bloco input:invalid:not(:placeholder-shown) + label,
+.container .formulario .bloco input:focus + label,
+.container .formulario .bloco input:disabled + label,
+.content .formulario .bloco input:valid + label,
+.content .formulario .bloco input:invalid:not(:placeholder-shown) + label,
+.content .formulario .bloco input:focus + label,
+.content .formulario .bloco input:disabled + label,
+.content .formulario .bloco select:valid + label,
+.content .formulario .bloco select:focus + label {
+    color: var(--cor-terciaria-v1);
+    font-size: 0.8rem;
+    top: -30px;
+    pointer-events: none;
+}
+.content .modal .overlay .formulario_novo h3 {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+}
+.content .modal .overlay .formulario_novo .conteudo {
+    margin-top: -20px;
+    padding-top: 20px;
+    height: calc(100% - 55px);
+    overflow-y: scroll;
+}
+.content .modal .overlay .formulario_novo .conteudo .formulario .bloco .icone,
+.content
+    .modal
+    .overlay
+    .obra
+    .formulario_interno
+    .conteudo
+    .formulario
+    .bloco
+    .icone {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    font-size: 20px;
+    transition: 0.2s ease-in-out;
+}
+.content .modal .overlay .formulario_novo .conteudo .formulario .bloco .icone {
+    color: var(--cor-terciaria-v4);
+}
+.content
+    .modal
+    .overlay
+    .obra
+    .formulario_interno
+    .conteudo
+    .formulario
+    .bloco
+    .icone {
+    color: var(--cor-terciaria-v1);
+}
+.content
+    .modal
+    .overlay
+    .formulario_novo
+    .conteudo
+    .formulario
+    .bloco
+    select:valid
+    ~ .icone,
+.content
+    .modal
+    .overlay
+    .formulario_novo
+    .conteudo
+    .formulario
+    .bloco
+    select:focus
+    ~ .icone {
+    color: var(--cor-terciaria-v1);
+}
+
+.content .modal .overlay .formulario_novo .conteudo .formulario .bloco_check {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 30px;
+    padding-left: 4px;
+    padding-bottom: 22px;
+    height: 70px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--cor-terciaria-v3);
+}
+
+.content
+    .modal
+    .overlay
+    .formulario_novo
+    .conteudo
+    .formulario
+    .bloco_check
+    .check_radio {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+    padding-left: 35px;
+    min-height: 24px;
+    text-align: left;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.content
+    .modal
+    .overlay
+    .formulario_novo
+    .conteudo
+    .formulario
+    .bloco_check
+    .check_radio
+    input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.content
+    .modal
+    .overlay
+    .formulario_novo
+    .conteudo
+    .formulario
+    .bloco_check
+    .check_radio
+    .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    border-radius: 5px;
+    background-color: var(--cor-terciaria-v5);
+}
+
+.content
+    .modal
+    .overlay
+    .formulario_novo
+    .conteudo
+    .formulario
+    .bloco_check
+    .check_radio
+    .checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 8px;
+    top: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--cor-secundaria);
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.content
+    .modal
+    .overlay
+    .formulario_novo
+    .conteudo
+    .formulario
+    .bloco_check
+    .check_radio:hover
+    input[type="checkbox"]
+    ~ .checkmark {
+    background-color: var(--cor-terciaria-v5);
+}
+.content
+    .modal
+    .overlay
+    .formulario_novo
+    .conteudo
+    .formulario
+    .bloco_check
+    .check_radio:hover
+    input[type="checkbox"]:disabled
+    ~ .checkmark {
+    cursor: not-allowed;
+}
+.content
+    .modal
+    .overlay
+    .formulario_novo
+    .conteudo
+    .formulario
+    .bloco_check
+    .check_radio
+    input[type="checkbox"]:checked
+    ~ .checkmark {
+    background-color: var(--cor-principal);
+}
+.content
+    .modal
+    .overlay
+    .formulario_novo
+    .conteudo
+    .formulario
+    .bloco_check
+    .check_radio
+    input[type="checkbox"]:checked
+    ~ .checkmark::after {
+    display: block;
+}
+
+.content
+    .modal
+    .overlay
+    .formulario_interno
+    .conteudo
+    .formulario
+    .bloco_imagem {
+    display: flex;
+    flex-wrap: wrap;
+}
+.content
+    .modal
+    .overlay
+    .formulario_interno
+    .conteudo
+    .formulario
+    .bloco_imagem.centralizado {
+    justify-content: center;
+}
+.content
+    .modal
+    .overlay
+    .formulario_novo
+    .conteudo
+    .formulario
+    .bloco_imagem
+    input,
+.content
+    .modal
+    .overlay
+    .formulario_interno
+    .conteudo
+    .formulario
+    .bloco_imagem
+    input {
+    display: none;
+}
+.content
+    .modal
+    .overlay
+    .formulario_novo
+    .conteudo
+    .formulario
+    .bloco_imagem
+    label,
+.content
+    .modal
+    .overlay
+    .formulario_interno
+    .conteudo
+    .formulario
+    .bloco_imagem
+    label {
+    display: flex;
+    align-items: center;
+    color: var(--cor-terciaria-v3);
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+.content
+    .modal
+    .overlay
+    .formulario_novo
+    .conteudo
+    .formulario
+    .bloco_imagem
+    .imagem,
+.content
+    .modal
+    .overlay
+    .formulario_interno
+    .conteudo
+    .formulario
+    .bloco_imagem
+    .icone_nota,
+.content
+    .modal
+    .overlay
+    .formulario_interno
+    .conteudo
+    .formulario
+    .bloco_imagem
+    .icone_arquivo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 18px;
+    color: var(--cor-terciaria-v3);
+    background-color: var(--cor-terciaria-v7);
+    overflow: hidden;
+}
+.content
+    .modal
+    .overlay
+    .formulario_interno
+    .conteudo
+    .formulario
+    .bloco_imagem
+    .imagem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    width: 64px;
+    height: 64px;
+    font-size: 32px;
+    color: var(--cor-terciaria-v3);
+    background-color: var(--cor-terciaria-v7);
+    overflow: hidden;
+}
+.content
+    .modal
+    .overlay
+    .formulario_interno
+    .conteudo
+    .formulario
+    .bloco_imagem
+    .imagem_nota {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    font-size: 64px;
+    color: var(--cor-terciaria-v3);
+    background-color: var(--cor-terciaria-v7);
+    overflow: hidden;
+}
+.content
+    .modal
+    .overlay
+    .formulario_interno
+    .conteudo
+    .formulario
+    .bloco_imagem
+    .imagem_nota_ativa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    color: var(--cor-terciaria-v3);
+    background-color: var(--cor-terciaria-v7);
+    overflow: hidden;
+}
+.content
+    .modal
+    .overlay
+    .formulario_interno
+    .conteudo
+    .formulario
+    .bloco_imagem
+    .imagem_nota_ativa
+    .texto_topo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    color: var(--cor-secundaria);
+    background-color: var(--cor-terciaria-trans);
+}
+.content
+    .modal
+    .overlay
+    .formulario_interno
+    .conteudo
+    .formulario
+    .bloco_imagem
+    .imagem_nota_ativa
+    img {
+    width: 100%;
+    height: auto;
+}
+.content .modal .overlay .obra .formulario_interno {
+    padding: 25px;
+    border-radius: 12px;
+    z-index: 3;
+}
+.content .modal .overlay .obra .formulario_interno .conteudo {
+    height: 100%;
+    overflow-y: scroll;
+}
+.content .modal .overlay .obra .formulario_interno .conteudo .formulario {
+    margin-top: 12px;
+}
+@media screen and (max-width: 768px) {
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    header {
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 10px 0;
+        background-color: var(--cor-secundaria);
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+        z-index: 2;
+        pointer-events: none;
+    }
+    header .logo {
+        width: 4rem;
+        height: 4rem;
+    }
+    nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        border-bottom: 5px solid var(--cor-principal);
+        background-color: var(--cor-principal);
+        box-sizing: initial;
+        overflow: hidden;
+        transition: height 0.7s ease-in-out;
+        z-index: 2;
+    }
+    nav .menu_toggle {
+        display: none;
+    }
+    nav.active .menu_toggle ion-icon:nth-child(1),
+    nav .menu_toggle ion-icon:nth-child(2) {
+        display: none;
+    }
+    nav .menu_toggle ion-icon:nth-child(1),
+    nav.active .menu_toggle ion-icon:nth-child(2) {
+        display: block;
+    }
+    nav .menu_toggle .bar {
+        display: none;
+    }
+    nav .menu {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding-bottom: 5px;
+    }
+    nav .menu li {
+        position: relative;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+    nav .menu li:not(:last-child) {
+        margin-right: 30px;
+    }
+    nav .menu li.active {
+        background-color: var(--cor-secundaria);
+    }
+    nav .menu li b:nth-child(1) {
+        display: none;
+        position: absolute;
+        left: -20px;
+        width: 20px;
+        height: 100%;
+        background-color: var(--cor-secundaria);
+    }
+    nav .menu li b:nth-child(1)::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-top-right-radius: 20px;
+        background-color: var(--cor-principal);
+    }
+    nav .menu li b:nth-child(2) {
+        display: none;
+        position: absolute;
+        right: -20px;
+        width: 20px;
+        height: 100%;
+        background-color: var(--cor-secundaria);
+    }
+    nav .menu li b:nth-child(2)::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-top-left-radius: 20px;
+        background-color: var(--cor-principal);
+    }
+    nav .menu li.active b:nth-child(1),
+    nav .menu li.active b:nth-child(2) {
+        display: block;
+    }
+    nav .menu li a {
+        color: var(--cor-secundaria);
+    }
+    nav .menu li.active a {
+        color: var(--cor-terciaria-v2);
+    }
+    nav .menu li a .icon {
+        position: relative;
+        display: block;
+        min-width: 60px;
+        height: 60px;
+        line-height: 80px;
+        text-align: center;
+    }
+    nav .menu li.active a .icon {
+        line-height: 72px;
+    }
+    nav .menu li a .title {
+        display: none;
+    }
+    .user {
+        display: none;
+    }
+    .content {
+        margin-top: 90px;
+        margin-bottom: 80px;
+        padding: 0 20px;
+    }
+    .content .options {
+        flex-direction: column;
+    }
+    .content .options .button.confirm {
+        margin-bottom: 1rem;
+    }
+    .content .options .button_square:nth-child(1) {
+        margin-bottom: 10px;
+    }
+    .content h1 {
+        display: none;
+    }
+    .content .dash .graficos {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+    }
+    .content .dash .graficos .conteudo {
+        flex-direction: column;
+        font-size: 0.8rem;
+    }
+    .content .dash .graficos .conteudo .grafico {
+        margin-bottom: 5px;
+    }
+    .content .dash .em_andamento_dash {
+        width: 100%;
+    }
+    .content .dash .em_andamento_dash .linhas .linha .termino {
+        display: none;
+    }
+    .content .dash .em_andamento_dash .linhas .linha .pendencia .texto::after {
+        content: "p";
+    }
+    .content .abas .adicionar span {
+        display: none;
+    }
+    .content .modal .overlay .obra .conteudo_aba {
+        height: calc(100% - 186px);
+    }
+    .content .modal .overlay_foto .fechar {
+        top: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .content .modal .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding-top: 90px;
+        padding-bottom: 80px;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--cor-secundaria);
+    }
+    .content .modal .overlay .obra,
+    .content .modal .overlay .colaborador,
+    .content .modal .overlay .formulario_novo {
+        position: absolute;
+        padding: 0 20px;
+        width: 100%;
+        height: calc(100% - 170px);
+        font-size: 0.9rem;
+    }
+    .content .modal .overlay .obra .formulario_interno {
+        position: fixed;
+        top: 288px;
+        bottom: 88px;
+        left: 20px;
+        right: 20px;
+        background-color: var(--cor-secundaria);
+        box-shadow: 0px 2px 12px rgb(0 0 0 / 25%);
+    }
+    .content .modal .overlay .colaborador .cartao {
+        margin-bottom: 25px;
+    }
+    .content .modal .overlay .obra .controles,
+    .content .modal .overlay .colaborador .controles {
+        top: 0;
+        right: 10px;
+    }
+    .content .modal .overlay .obra .infos .nome {
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+    }
+    .content .modal .overlay .obra .infos .responsavel,
+    .content .modal .overlay .obra .infos .responsavel_tecnico {
+        display: flex;
+    }
+    .content .modal .overlay .obra .infos .responsavel,
+    .content .modal .overlay .obra .infos .responsavel_tecnico,
+    .content .modal .overlay .obra .infos .inicio {
+        margin-bottom: 5px;
+    }
+    .content .modal .overlay .obra .infos .termino {
+        margin-bottom: 15px;
+    }
+    .content .modal .overlay .obra .conteudo_aba .adicionar_diario,
+    .content .modal .overlay .obra .conteudo_aba .atualizacao {
+        box-shadow: 0px 2px 12px rgb(0 0 0 / 25%);
+    }
+    .content .modal .overlay .obra .conteudo_aba .atualizacao::after {
+        background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 1) 50%
+        );
+    }
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .nome
+        .cartao_obra
+        .box_balao
+        .preloader,
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel
+        .cartao_pessoa
+        .box_balao
+        .preloader,
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel_tecnico
+        .cartao_pessoa
+        .box_balao
+        .preloader {
+        height: 100%;
+    }
+    .content .modal .overlay .obra .infos .nome .cartao_obra .box_balao,
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel
+        .cartao_pessoa
+        .box_balao,
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel_tecnico
+        .cartao_pessoa
+        .box_balao,
+    .content .modal .overlay .obra .cartao_atualizacao {
+        position: fixed;
+        top: 240px;
+        bottom: 80px;
+        left: 20px;
+        right: 20px;
+        overflow-y: scroll;
+    }
+    .content .modal .overlay .obra .infos .nome .cartao_obra .box_balao,
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel
+        .cartao_pessoa
+        .box_balao,
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel_tecnico
+        .cartao_pessoa
+        .box_balao {
+        box-shadow: 0px 2px 12px rgb(0 0 0 / 25%),
+            10px 10px var(--cor-secundaria), -10px 10px var(--cor-secundaria);
+    }
+    .content .modal .overlay .obra .infos .nome .cartao_obra .box_balao .cartao,
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel
+        .cartao_pessoa
+        .box_balao
+        .cartao,
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel_tecnico
+        .cartao_pessoa
+        .box_balao
+        .cartao {
+        margin-bottom: 20px;
+    }
+    .content .modal .overlay .obra .cartao_atualizacao {
+        background-color: var(--cor-secundaria);
+        box-shadow: 0px 2px 12px rgb(0 0 0 / 25%),
+            10px 10px var(--cor-secundaria), -10px 10px var(--cor-secundaria);
+    }
+    .content .modal .overlay .colaborador .listas {
+        height: calc(100% - 330px);
+    }
+    .content .perfil .botao_gestao_colaboradores {
+        bottom: 90px;
+        left: 20px;
+        border-radius: 12px;
+    }
+}
+@media screen and (min-width: 769px) {
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+    ::-webkit-scrollbar-track,
+    ::-webkit-scrollbar-thumb {
+        border-radius: 2.5px;
+    }
+    ::-webkit-scrollbar-track {
+        margin-block: 0.5em;
+        background-color: var(--cor-terciaria-v6);
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--cor-terciaria-v5);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--cor-terciaria-v4);
+    }
+    header {
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        bottom: 20px;
+        left: 15px;
+        z-index: 3;
+    }
+    header .logo {
+        width: 3rem;
+        height: 3rem;
+        filter: invert(1);
+    }
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 70px;
+        box-sizing: initial;
+        border-left: 5px solid var(--cor-principal);
+        background-color: var(--cor-principal);
+        transition: width 0.5s;
+        overflow-x: hidden;
+        z-index: 2;
+    }
+    nav.active {
+        width: 280px;
+    }
+    nav .menu_toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 1.5rem;
+        color: var(--cor-secundaria);
+        cursor: pointer;
+        z-index: 2;
+    }
+    nav.active .menu_toggle ion-icon:nth-child(1),
+    nav .menu_toggle ion-icon:nth-child(2) {
+        display: none;
+    }
+    nav .menu_toggle ion-icon:nth-child(1),
+    nav.active .menu_toggle ion-icon:nth-child(2) {
+        display: block;
+    }
+    nav .menu_toggle .bar {
+        display: none;
+    }
+    nav .menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding-left: 5px;
+        padding-top: 70px;
+    }
+    nav .menu li {
+        position: relative;
+        width: 100%;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+    nav .menu li.active {
+        background-color: var(--cor-secundaria);
+    }
+    nav .menu li b:nth-child(1) {
+        display: none;
+        position: absolute;
+        top: -20px;
+        height: 20px;
+        width: 100%;
+        background-color: var(--cor-secundaria);
+    }
+    nav .menu li b:nth-child(1)::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-bottom-right-radius: 20px;
+        background-color: var(--cor-principal);
+    }
+    nav .menu li b:nth-child(2) {
+        display: none;
+        position: absolute;
+        bottom: -20px;
+        height: 20px;
+        width: 100%;
+        background-color: var(--cor-secundaria);
+    }
+    nav .menu li b:nth-child(2)::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-top-right-radius: 20px;
+        background-color: var(--cor-principal);
+    }
+    nav .menu li.active b:nth-child(1),
+    nav .menu li.active b:nth-child(2) {
+        display: block;
+    }
+    nav .menu li a {
+        color: var(--cor-secundaria);
+    }
+    nav .menu li.active a {
+        color: var(--cor-terciaria-v2);
+    }
+    nav .menu li a .icon {
+        position: relative;
+        display: block;
+        min-width: 60px;
+        height: 60px;
+        line-height: 72px;
+        text-align: center;
+    }
+    nav .menu li a .title {
+        position: relative;
+        display: block;
+        padding-left: 10px;
+        height: 60px;
+        line-height: 60px;
+        white-space: nowrap;
+    }
+    .user {
+        display: flex;
+        align-items: center;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 4px;
+        background-color: var(--cor-secundaria);
+        border-radius: 6px;
+    }
+    .user .icone {
+        display: flex;
+        align-items: center;
+        margin-right: 5px;
+        height: 32px;
+        font-size: 32px;
+        color: var(--cor-principal);
+    }
+    .user .texto .nome {
+        margin-bottom: -3px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+    .user .texto .matricula {
+        font-size: 0.8rem;
+    }
+    .content {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding-top: 20px;
+        padding-left: 100px;
+        padding-right: 20px;
+        overflow-y: scroll;
+    }
+    .content .options {
+        flex-direction: row-reverse;
+    }
+    .content .options .button.confirm {
+        margin-left: 1rem;
+    }
+    .container .options .button.confirm:hover,
+    .content .options .button.confirm:hover {
+        background-color: var(--cor-principal-v1);
+    }
+    .content .options .button.cancel:hover {
+        background-color: var(--cor-terciaria-v5);
+    }
+    .content .options .button_square:hover {
+        background-color: var(--cor-terciaria-v3);
+    }
+    .content .options .button_square:nth-child(1) {
+        margin-left: 10px;
+    }
+    .content h1 {
+        margin-bottom: 20px;
+        color: var(--cor-principal);
+    }
+    .content .abas .botao_voltar {
+        transform: translateY(-75%);
+    }
+    .content .abas .botao_voltar:hover {
+        color: var(--cor-principal-v1);
+    }
+    .content .dash {
+        display: flex;
+    }
+    .content .dash .graficos {
+        width: 400px;
+    }
+    .content .dash .graficos .preloader {
+        margin-top: 35px;
+    }
+    .content .dash .graficos .conteudo {
+        margin-bottom: 30px;
+        font-size: 0.9rem;
+    }
+    .content .dash .graficos .conteudo .grafico {
+        margin-right: 10px;
+    }
+    .content .dash .em_andamento_dash {
+        width: 100%;
+    }
+    .content .dash .em_andamento_dash .linhas .linha .pendencia .texto::after {
+        content: " pendência(s)";
+    }
+    .content .abas ul li:hover {
+        color: var(--cor-principal);
+    }
+    .content .abas ul li.active:hover::after {
+        width: 110%;
+    }
+    .content .abas .adicionar:hover,
+    .content .modal .overlay .obra .conteudo_aba .adicionar:hover {
+        background-color: var(--cor-principal-v1);
+    }
+    .content .obras,
+    .content .colaboradores {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .content .obras .box,
+    .content .colaboradores .box {
+        margin-right: 20px;
+        width: 350px;
+    }
+    .content .obras .box:hover,
+    .content .colaboradores .box:hover,
+    .content .perfil .botao_gestao_colaboradores:hover {
+        box-shadow: 0px 2px 12px rgb(0 0 0 / 35%);
+    }
+    .content .modal .overlay .obra .conteudo_aba .adicionar_diario,
+    .content .modal .overlay .obra .conteudo_aba .atualizacao {
+        background-color: var(--cor-terciaria-v6);
+    }
+    .content .modal .overlay .obra .conteudo_aba .atualizacao::after {
+        background: linear-gradient(
+            90deg,
+            rgba(241, 241, 241, 0) 0%,
+            rgba(241, 241, 241, 1) 50%
+        );
+    }
+    .content .modal .overlay .obra .conteudo_aba .atualizacao .texto {
+        display: flex;
+    }
+    .content
+        .modal
+        .overlay
+        .obra
+        .conteudo_aba
+        .atualizacao
+        .remover_atualizacao:hover {
+        color: var(--cor-terciaria-v3);
+    }
+    .content .modal .overlay .obra .conteudo_aba {
+        height: calc(100% - 166px);
+    }
+    .content .modal .overlay_foto .fechar {
+        top: 20px;
+        right: 20px;
+    }
+    .content .modal .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin-top: 70px;
+        margin-left: 75px;
+        padding-top: 50px;
+        padding-right: 75px;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--cor-secundaria-trans);
+    }
+    .content .modal .overlay .obra,
+    .content .modal .overlay .colaborador,
+    .content .modal .overlay .formulario_novo {
+        position: absolute;
+        top: calc(50% - 35px);
+        left: calc(50% - 32.5px);
+        padding: 50px;
+        width: 70%;
+        height: 70%;
+        border-radius: 12px;
+        font-size: 0.9rem;
+        background-color: var(--cor-secundaria);
+        box-shadow: 0px 2px 12px rgb(0 0 0 / 25%);
+        transform: translate(-50%, -50%);
+    }
+    .content .modal .overlay .obra .formulario_interno {
+        position: absolute;
+        top: 208px;
+        bottom: 64px;
+        left: 50px;
+        right: 50px;
+        background-color: var(--cor-terciaria-v6);
+    }
+    .content .modal .overlay .colaborador {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .content .modal .overlay .colaborador .cartao {
+        margin-right: 50px;
+    }
+    .content .modal .overlay .obra .controles,
+    .content .modal .overlay .colaborador .controles {
+        top: 25px;
+        right: 25px;
+    }
+    .content .modal .overlay .obra .controles_interno .secundario:hover {
+        background-color: var(--cor-terciaria-v5);
+    }
+    .content .modal .overlay .obra .controles_interno .principal:hover,
+    .content .modal .overlay .obra .controles_interno .link:hover {
+        background-color: var(--cor-principal-v1);
+    }
+    .content .modal .overlay .obra .controles_interno .pendencia:hover {
+        background-color: var(--cor-aviso-principal);
+    }
+    .content .modal .overlay .obra .icone:hover,
+    .content .modal .overlay .obra .controles .editar:hover,
+    .content .modal .overlay .obra .controles .fechar:hover {
+        color: var(--cor-principal-v1);
+    }
+    .content .modal .overlay .obra .infos .nome {
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+    }
+    .content .modal .overlay .obra .infos .responsavel,
+    .content .modal .overlay .obra .infos .responsavel_tecnico {
+        margin-bottom: 10px;
+    }
+    .content .modal .overlay .obra .infos .inicio,
+    .content .modal .overlay .obra .infos .termino {
+        margin-bottom: 20px;
+    }
+    .content .modal .overlay .obra .infos .responsavel,
+    .content .modal .overlay .obra .infos .responsavel_tecnico,
+    .content .modal .overlay .obra .infos .inicio,
+    .content .modal .overlay .obra .infos .termino {
+        display: inline-flex;
+        width: 49%;
+    }
+    .content .modal .overlay .obra .abas {
+        margin-left: -5px;
+        padding-left: 5px;
+    }
+    .content .modal .overlay .obra .infos .nome .cartao_obra .box_balao,
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel
+        .cartao_pessoa
+        .box_balao,
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel_tecnico
+        .cartao_pessoa
+        .box_balao {
+        display: flex;
+        position: absolute;
+        top: 50%;
+        width: 480px;
+        box-shadow: 0px 2px 12px rgb(0 0 0 / 25%);
+        transform: translateY(-50%);
+    }
+    .content .modal .overlay .obra .infos .nome .cartao_obra .box_balao,
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel
+        .cartao_pessoa
+        .box_balao {
+        left: 10px;
+    }
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel_tecnico
+        .cartao_pessoa
+        .box_balao {
+        right: 30px;
+    }
+    .content .modal .overlay .obra .infos .nome .cartao_obra .box_balao::before,
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel
+        .cartao_pessoa
+        .box_balao::before,
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel_tecnico
+        .cartao_pessoa
+        .box_balao::before {
+        content: "";
+        position: absolute;
+        top: calc(50% - 14px);
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+        background-color: var(--cor-secundaria);
+        box-shadow: 0px 2px 12px rgb(0 0 0 / 25%);
+        transform: rotate(45deg);
+    }
+    .content .modal .overlay .obra .infos .nome .cartao_obra .box_balao::before,
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel
+        .cartao_pessoa
+        .box_balao::before {
+        left: -8px;
+    }
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel_tecnico
+        .cartao_pessoa
+        .box_balao::before {
+        right: -8px;
+    }
+    .content .modal .overlay .obra .infos .nome .cartao_obra .box_balao::after,
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel
+        .cartao_pessoa
+        .box_balao::after,
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel_tecnico
+        .cartao_pessoa
+        .box_balao::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 25px;
+        height: 50px;
+        background-color: var(--cor-secundaria);
+        transform: translateY(-50%);
+    }
+    .content .modal .overlay .obra .infos .nome .cartao_obra .box_balao::after,
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel
+        .cartao_pessoa
+        .box_balao::after {
+        left: 0px;
+    }
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel_tecnico
+        .cartao_pessoa
+        .box_balao::after {
+        right: 0px;
+    }
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .nome
+        .cartao_obra
+        .box_balao
+        .fechar:hover,
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel
+        .cartao_pessoa
+        .box_balao
+        .fechar:hover,
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel_tecnico
+        .cartao_pessoa
+        .box_balao
+        .fechar:hover,
+    .content .modal .overlay .obra .cartao_atualizacao .fechar:hover,
+    .content .modal .overlay .obra .formulario_interno .fechar:hover {
+        background-color: var(--cor-principal-v1);
+    }
+    .content .modal .overlay .obra .infos .nome .cartao_obra .box_balao .cartao,
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel
+        .cartao_pessoa
+        .box_balao
+        .cartao,
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel_tecnico
+        .cartao_pessoa
+        .box_balao
+        .cartao {
+        margin-right: 20px;
+    }
+    .content .modal .overlay .obra .infos .nome .cartao_obra .box_balao .texto,
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel
+        .cartao_pessoa.box_balao
+        .texto,
+    .content
+        .modal
+        .overlay
+        .obra
+        .infos
+        .responsavel_tecnico
+        .cartao_pessoa
+        .box_balao
+        .texto {
+        margin-right: 25px;
+    }
+    .content .modal .overlay .obra .cartao_atualizacao {
+        position: absolute;
+        top: 166px;
+        bottom: 50px;
+        left: 50px;
+        right: 50px;
+        background-color: var(--cor-terciaria-v6);
+    }
+    .content .modal .overlay .obra .cartao_atualizacao .ocorrencias,
+    .content .modal .overlay .obra .cartao_atualizacao .condicao_tempo {
+        display: inline-flex;
+        width: 49%;
+    }
+    .content .modal .overlay .colaborador .listas {
+        height: calc(100% - 180px);
+    }
+    .content .formulario .bloco.duplo {
+        display: inline-flex;
+    }
+    .content .formulario .bloco.unico {
+        width: calc(90% + 34px);
+    }
+    .content .formulario .bloco.meio {
+        width: 45%;
+    }
+    .content .formulario .bloco.com_espacamento {
+        margin-right: 30px;
+    }
+    .content
+        .modal
+        .overlay
+        .formulario_novo
+        .conteudo
+        .formulario
+        .bloco_check {
+        width: 45%;
+    }
+    .content
+        .modal
+        .overlay
+        .obra
+        .formulario_interno
+        .conteudo
+        .formulario
+        .bloco {
+        width: 99%;
+    }
+    .content .modal .overlay .colaborador .lista_responsavel {
+        width: 99%;
+    }
+    .content .perfil .botao_gestao_colaboradores {
+        bottom: 20px;
+        border-radius: 48px;
+    }
+    .content .exit p {
+        text-align: center;
+    }
+}

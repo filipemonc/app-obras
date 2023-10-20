@@ -1,0 +1,13 @@
+# dotenv environment variables file
+.env
+.env.test
+.env.production
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# Remove .DS_Store
+**/.DS_Store
+
+# Remove .htaccess
+.htaccess
